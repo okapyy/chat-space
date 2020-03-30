@@ -1,0 +1,42 @@
+.mainchat
+  .mainchat__groupheader
+    .mainchat__groupheader__title
+      .mainchat__groupheader__title__text
+        test
+      .mainchat__groupheader__title__member
+        Member : okapy
+    .mainchat__groupheader__edit
+      = link_to "Edit", "#", class: "mainchat__groupheader__edit__btn"
+  .mainchat__messages
+    .mainchat__messages__message
+      .mainchat__messages__message__header
+        .mainchat__messages__message__header__user-name
+          okapy
+        .mainchat__messages__message__header__day
+          2020/3/27(Fri) 20:31:37
+      .mainchat__messages__message__content
+        CHIMEE!!!
+    .mainchat__messages__message
+      .mainchat__messages__message__header
+        .mainchat__messages__message__header__user-name
+          okapy
+        .mainchat__messages__message__header__day
+          2020/3/27(Fri) 20:31:38
+      .mainchat__messages__message__content
+        RJ!!!!
+    .mainchat__messages__message
+      .mainchat__messages__message__header
+        .mainchat__messages__message__header__user-name
+          okapy
+        .mainchat__messages__message__header__day
+          2020/3/27(Fri) 20:31:39
+      .mainchat__messages__message__content
+        van!!!!
+  .mainchat__messageform
+    %form.mainchat__messageform__content
+      .mainchat__messageform__content__form-input
+        %input.mainchat__messageform__content__form-input__text{type: :text, name: :message, placeholder: :"type a message"}
+        %label{class: "mainchat__messageform__content__form-input__icon"}
+          =icon('fas', 'image', class: "mainchat__messageform__content__form-input__icon--image")
+          %input{type: "file", class: "mainchat__messageform__content__form-input__icon--file"}
+      %input.mainchat__messageform__content__send-btn{type: :submit, name: :commit, value: :"Send"}
