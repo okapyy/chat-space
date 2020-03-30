@@ -2,13 +2,13 @@
   .sidebar__username
     .sidebar__username__title
       .sidebar__username__title__nickname
-        okapy
+        = current_user.nickname
       .sidebar__username__title__icon
         .sidebar__username__title__icon__edit
           = link_to "#", class: "sidebar__username__title__icon__edit--btn" do
             = icon('far', 'edit')
         .sidebar__username__title__icon__cog
-          = link_to "#", class: "sidebar__username__title__icon__cog--btn" do
+          = link_to edit_user_path(current_user), class: "sidebar__username__title__icon__cog--btn" do
             = icon('fas', 'cog')
   .sidebar__grouplist
     .sidebar__grouplist__group
