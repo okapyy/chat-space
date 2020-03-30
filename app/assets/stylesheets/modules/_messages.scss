@@ -57,6 +57,9 @@ $text-color: #ffffff;
     font-weight: bold;
     &__group {
       padding: 0 20px;
+      a {
+        text-decoration: none;
+      }
       &__group-name {
         font-size: 15px;
         color: $text-color;
