@@ -1,0 +1,10 @@
+.mainchat__messages__message
+  .mainchat__messages__message__header
+    .mainchat__messages__message__header__user-name
+      = message.user.nickname
+    .mainchat__messages__message__header__day
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .mainchat__messages__message__content
+    - if message.body.present?
+      = message.body
+    = image_tag message.image.url, if message.image.present?

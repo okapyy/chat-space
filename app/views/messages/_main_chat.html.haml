@@ -2,41 +2,22 @@
   .mainchat__groupheader
     .mainchat__groupheader__title
       .mainchat__groupheader__title__text
-        test
+        = @group.name
       .mainchat__groupheader__title__member
-        Member : okapy
+        Member :
+        - @group.users.each do |user|
+          = user.nickname
     .mainchat__groupheader__edit
-      = link_to "Edit", "#", class: "mainchat__groupheader__edit__btn"
+      = link_to "Edit", edit_group_path(@group), class: "mainchat__groupheader__edit__btn"
   .mainchat__messages
-    .mainchat__messages__message
-      .mainchat__messages__message__header
-        .mainchat__messages__message__header__user-name
-          okapy
-        .mainchat__messages__message__header__day
-          2020/3/27(Fri) 20:31:37
-      .mainchat__messages__message__content
-        CHIMEE!!!
-    .mainchat__messages__message
-      .mainchat__messages__message__header
-        .mainchat__messages__message__header__user-name
-          okapy
-        .mainchat__messages__message__header__day
-          2020/3/27(Fri) 20:31:38
-      .mainchat__messages__message__content
-        RJ!!!!
-    .mainchat__messages__message
-      .mainchat__messages__message__header
-        .mainchat__messages__message__header__user-name
-          okapy
-        .mainchat__messages__message__header__day
-          2020/3/27(Fri) 20:31:39
-      .mainchat__messages__message__content
-        van!!!!
+    = render @messages
+    
+    
   .mainchat__messageform
-    %form.mainchat__messageform__content
+    = form_for [@group, @message] ,html:{ class: 'mainchat__messageform__content' } do |f|
       .mainchat__messageform__content__form-input
-        %input.mainchat__messageform__content__form-input__text{type: :text, name: :message, placeholder: :"type a message"}
-        %label{class: "mainchat__messageform__content__form-input__icon"}
-          =icon('fas', 'image', class: "mainchat__messageform__content__form-input__icon--image")
-          %input{type: "file", class: "mainchat__messageform__content__form-input__icon--file"}
-      %input.mainchat__messageform__content__send-btn{type: :submit, name: :commit, value: :"Send"}
+        = f.text_field :body, class: 'mainchat__messageform__content__form-input__text', name: :message, placeholder: :"type a message"
+        = f.label :image, class: 'mainchat__messageform__content__form-input__icon' do
+          = icon('fas', 'image', class: "mainchat__messageform__content__form-input__icon--image")
+          = f.file_field :image, class: 'mainchat__messageform__content__form-input__icon--file'
+      = f.submit 'Send', class: 'mainchat__messageform__content__send-btn', name: :submit
