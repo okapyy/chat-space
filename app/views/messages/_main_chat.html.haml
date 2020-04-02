@@ -14,10 +14,10 @@
     
     
   .mainchat__messageform
-    = form_for [@group, @message] ,html:{ class: 'mainchat__messageform__content' } do |f|
+    = form_for [@group, @message] , html:{ class: 'mainchat__messageform__content' } do |f|
       .mainchat__messageform__content__form-input
-        = f.text_field :body, class: 'mainchat__messageform__content__form-input__text', name: :message, placeholder: :"type a message"
+        = f.text_field :body, class: 'mainchat__messageform__content__form-input__text',placeholder: 'type a message'
         = f.label :image, class: 'mainchat__messageform__content__form-input__icon' do
-          = icon('fas', 'image', class: "mainchat__messageform__content__form-input__icon--image")
+          = icon('fas','image', class: 'mainchat__messageform__content__form-input__icon--image')
           = f.file_field :image, class: 'mainchat__messageform__content__form-input__icon--file'
-      = f.submit 'Send', class: 'mainchat__messageform__content__send-btn', name: :submit
+      = f.submit 'Send', class: 'mainchat__messageform__content__send-btn', name: 'submit'

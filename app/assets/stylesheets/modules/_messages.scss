@@ -118,6 +118,7 @@ $text-color: #ffffff;
     width: 100%;
     background-color: #fafafa;
     padding: 35px 40px;
+    overflow: scroll;
     &__message {
       &__header {
         display: flex;
@@ -155,7 +156,6 @@ $text-color: #ffffff;
         width: 100%;
         background-color: $text-color;
         display: flex;
-        position: relative;
         &__text {
           height: 50px;
           width: 100%;
@@ -164,6 +164,7 @@ $text-color: #ffffff;
         &__icon {
           display: flex;
           align-items: center;
+          position: relative;
           &--image {
             position: absolute;
             right: 10px;
